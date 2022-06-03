@@ -1,0 +1,60 @@
+<%- include ('partials/header') -%>
+
+		<% if (typeof error != 'undefined') { %>
+
+        <% error.forEach(function(error){ %>
+
+              <h5 style="color: red;"><%= error.msg %></h5>
+
+        <% }) %>
+
+      <% } %>
+
+      <% if(success_msg != '') {%>
+        <h6 style="color:green"><%= success_msg %></h6>
+
+      <% } %>
+
+      <% if(error_msg != '') { %>
+
+        <h6 style="color:red"><%= error_msg %></h6>
+
+      <% } %>
+            <div class="banner"></div>
+            
+            <div class="banner2">
+              <h3>Contact Doctor</h3>
+
+              <form action="/" method="post">
+                  <p>Search for a Doctor by his/her Firstname</p><input type="text" name="user" placeholder="Doctor's Firstname">
+                <a href="/search">
+                <input type="submit" value="SEARCH"/></a>
+              </form>
+                
+                
+            </div>
+
+
+<center id="about">
+    <div class="bfooter" id="pricing">
+    <div class="media">
+        <h3>Connect with Us</h3>
+    <div class="platform fb"></div>
+    <div class="platform tt"></div>
+    <div class="platform ig"></div>
+    <div class="platform wh"></div>
+
+    </div>
+    
+</div>
+
+</center>
+
+
+
+</div>
+
+
+
+</body>
+</html>

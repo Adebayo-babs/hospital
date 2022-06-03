@@ -1,0 +1,28 @@
+<%- include ('partials/header') %>
+
+<div class="doctor_list">
+    <h2><%= username %> </h2>
+
+   <a href="/doctor/viewPat">Back</a>
+   <a href="/">Sign Out</a>
+
+    <% record.forEach(function(records){ %>
+    
+    <p>Patient Name: <b><%= records.pName %></b></p>
+    <p>Sex: <b><%= records.sex %></b></p>
+    <p>Date of birth: <b><%= records.dob.toLocaleDateString() %></b></p>
+    <p>Email: <b><%= records.email %></b></p>
+    <p>Mobile Number: <b><%= records.num %></b></p>
+    <p>Address: <b><%= records.address %></b></p>
+    <p>Previously Diagnosed of: <b><%= records.pDiag %></b></p>
+    <p>Smoking History: <b><%= records.smoke %></b> </p>
+    <p>Date of onset symptoms: <b><%= records.sDate.toLocaleDateString() %></b></p>
+    <p>Date of Diagnosis: <b><%= records.dDate.toLocaleDateString() %></b></p>
+    <p>Do you have a surgical history: <b><%= records.surg %></b></p>
+    <p>Registered Date: <%= records.date %></p>
+    <% }) %>
+</div>
+
+
+
+<%- include ('partials/footer') %>

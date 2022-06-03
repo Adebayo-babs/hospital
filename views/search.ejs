@@ -1,0 +1,26 @@
+<%- include ('partials/header') %>
+
+<div class="doctor_list">
+
+    <%if(record.length === 0){ %>
+        <p>No result found</p>
+    <% } else{ %>
+    <% record.forEach(function(records){ %>
+    <div class="logo_2">
+     <img src="data:image/<%=records.upload.contentType%>;base64,<%=records.upload.data.toString('base64')%>" 
+     width="300" height="300">
+    </div>
+    
+    <p>Full Name: <b><%= records.fName + " " + records.lName  %></b></p>
+    <p>About Doctor: <b><%= records.description %></b></p>
+    <p>Contact Email: <b><%= records.cEmail %></b></p>
+    <p>Contact Number: <b><%= records.cNumber %></b> </p>
+    <p>Years of Experience: <b><%= records.yearsOfExp %></b></p>
+    <p>Username: <b><%= records.username %></b></p>    
+    <% }) %>
+    <% } %>
+</div>
+
+
+
+<%- include ('partials/footer') %>

@@ -1,0 +1,38 @@
+
+
+ <% if(success_msg != '') { %>
+  <div class="alert success">
+    <span class="closebtn">&times;</span>  
+    <strong>Success!</strong> Indicates a successful or positive action.
+  </div>
+<% } %>
+
+
+<% if(error_msg != '') { %>
+  <div class="alert warning">
+    <span class="closebtn">&times;</span>  
+    <strong>Warning!  <%= error %> </strong> Indicates a warning that might need attention.
+  </div>
+<% } %>
+
+
+<% if(error != '') { %>
+  <div class="alert warning">
+    <span class="closebtn">&times;</span>  
+    <strong>Warning!  <%= error %> </strong> Indicates a warning that might need attention.
+  </div>
+<% } %>
+
+<script>
+  var close = document.getElementsByClassName("closebtn");
+  var i;
+  
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function(){
+      var div = this.parentElement;
+      div.style.opacity = "0";
+      setTimeout(function(){ div.style.display = "none"; }, 600);
+    }
+  }
+  </script>
+  

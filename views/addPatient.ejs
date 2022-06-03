@@ -1,0 +1,86 @@
+<%- include ('partials/header') %>
+
+
+<% if (typeof error != 'undefined') { %>
+
+        <% error.forEach(function(error){ %>
+
+              <h5 style="color: red;"><%= error.msg %></h5>
+
+        <% }) %>
+
+      <% } %>
+
+      <% if(success_msg != '') {%>
+        <h6 style="color:green"><%= success_msg %></h6>
+
+      <% } %>
+
+      <% if(error_msg != '') { %>
+
+        <h6 style="color:red"><%= error_msg %></h6>
+
+      <% } %>
+
+    <div class="form-1">
+      <%- include ('partials/messages') %>
+            <h2>Add Patient</h2>
+            <h3>Doctor: <strong><%= username %></strong></h3>
+
+            
+            <a href="/doctor/viewPat">View Patient</a>
+            
+
+            
+            <div class="alert">
+                <%- include ('partials/messages') %>
+             
+            </div>
+          
+        <form action="/doctor/addPat" method="POST" enctype="multipart/form-data">
+            
+
+            <h3>Personal Details</h3>
+            
+              <p><input type="text" name="pName"  placeholder="Fullname"></p>
+
+              <p>Gender:
+                   <input type="radio" name="sex" id="" value="Male">Male
+                   <input type="radio" name="sex" id="" value="Female">Female
+              </p>
+
+              <p>Date of birth:<input type="date" name="dob"  placeholder="Date of birth"></p>
+
+              <p>Email: <input type="email" name="email"  placeholder="E-mail"></p>
+
+              <p>Mobile Number: <input type="Number" name="num"></p>          
+
+              <p>Home Address: <input type="text" name="address"  placeholder="Home Address"></p>
+
+              <hr>
+
+              <h3>Clinical Report Form</h3>
+              <p>Previously diagnosed of? <input type="text" name="pDiag"></p>
+
+              <p>Smoking History:
+                  <input type="radio" name="smoke" id="" value="Non Smoker">Non Smoker
+                  <input type="radio" name="smoke" id="" value="Smoker">Smoker
+                  <input type="radio" name="smoke" id="" value="Ex Smoker">Ex Smoker
+              </p>
+
+              <p>Date of onset symptoms <input type="date" name="sDate"></p>
+              <p>Date of diagnosis <input type="date" name="dDate"></p>
+
+              
+              <p>Do you have a surgical history?
+                  <input type="radio" name="surg" id="" value="Yes">Yes
+                  <input type="radio" name="surg" id="" value="No">No
+              </p>
+
+             <input type="submit" name="signup" value="Click to Add">
+      
+         </form>
+
+    </div>
+
+<%- include ('partials/footer') %>

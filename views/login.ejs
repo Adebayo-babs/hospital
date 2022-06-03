@@ -1,0 +1,18 @@
+<%- include ('partials/header') %>
+<div class="form-1">
+  <form action="/doctor/login"  method="POST">
+  <%- include ('partials/messages') %>
+
+    <h2>Doctor Login Page</h2>
+
+      <p><input type="text" name="username"  placeholder="Enter your username"></p>
+      <p><input type="password" name="password"  placeholder="Password"></p>
+
+      <input type="submit" name="" value="Click to Login" >
+
+      </form>
+
+</div>
+
+
+<%- include('partials/footer') %>

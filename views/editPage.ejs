@@ -1,0 +1,82 @@
+<%- include ('partials/header') %>
+
+
+<% if (typeof error != 'undefined') { %>
+
+        <% error.forEach(function(error){ %>
+
+              <h5 style="color: red;"><%= error.msg %></h5>
+
+        <% }) %>
+
+      <% } %>
+
+      <% if(success_msg != '') {%>
+        <h6 style="color:green"><%= success_msg %></h6>
+
+      <% } %>
+
+      <% if(error_msg != '') { %>
+
+        <h6 style="color:red"><%= error_msg %></h6>
+
+      <% } %>
+
+		<h2>Edit Patient Details</h2>
+
+			<% record.forEach((r) => { %>
+
+				<form action="/doctor/edit/<%= r._id %>" method="post">
+					<h3>Personal Details</h3>
+            <a href="/doctor/viewPat">View Patient</a>
+            <p>Doctor: <strong><%= username %></strong></p>
+
+            
+            <div class="alert">
+                <%- include ('partials/messages') %>
+             
+            </div>
+            
+              <p><input type="text" name="pName"  placeholder="Fullname" value="<%= r.pName %>"></p>
+
+              <p>Gender
+                   <input type="radio" name="sex" id="" value="Male" value="<%= r.sex %>">Male
+                   <input type="radio" name="sex" id="" value="Female" value="<%= r.sex %>">Female
+              </p>
+
+              <p>Date of birth<input type="date" name="dob"  placeholder="Date of birth" value="<%= r.dob %>"></p>
+
+              <p>Email: <input type="email" name="email"  placeholder="E-mail" value="<%= r.email %>"></p>
+
+              <p>Mobile Number: <input type="Number" name="num"  placeholder="Mobile Number" value="<%= r.num %>"></p>          
+
+              <p>Home Address: <input type="text" name="address"  placeholder="Home Address" value="<%= r.address %>"></p>
+
+              <hr>
+
+              <h3>Clinical Report Form</h3>
+              <p>Previously diagnosed of? <input type="text" name="pDiag" value="<%= r.pDiag %>"></p>
+
+              <p>Smoking History
+                  <input type="radio" name="smoke" id="" value="Non Smoker" value="<%= r.smoke %>">Non Smoker
+                  <input type="radio" name="smoke" id="" value="Smoker" value="<%= r.smoke %>">Smoker
+                  <input type="radio" name="smoke" id="" value="Ex Smoker" value="<%= r.smoke %>">Ex Smoker
+              </p>
+
+              <p>Date of onset symptoms <input type="date" name="sDate" value="<%= r.sDate %>"></p>
+              <p>Date of diagnosis <input type="date" name="dDate" value="<%= r.dDate %>"></p>
+
+              
+              <p>Do you have a surgical history?
+                  <input type="radio" name="surg" id="" value="Yes" value="<%= r.surg %>">Yes
+                  <input type="radio" name="surg" id="" value="No" value="<%= r.surg %>">No
+              </p>
+
+						<input type="submit" name="" value="Click to Edit">
+					
+				</form>
+
+			<% }) %>
+
+<%- include ('partials/footer') %>
+

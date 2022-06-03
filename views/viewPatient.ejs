@@ -1,0 +1,40 @@
+
+<%- include ('partials/header') %>
+
+<div class="doctor_list">
+    <h2>Signed in Doctor: <%= username %> </h2>
+    <a href="/doctor/addPat">Add Patient</a>
+    <a href="/">Sign Out</a>
+    <h3>These are the Patients in your database presently</h3>
+
+        
+
+        <table style="text-align: center;" border="5">
+
+            <tr>
+                <th>Patient Name</th>
+                <th>Patient Details</th>
+                <th>Date Registered</th>
+                <th>Edit</th>
+                <th>Delete</th>
+                <th>Registered Date</th>
+            </tr>
+
+            <tr>
+                <% record.forEach((records) => { %>
+
+                    <td><%= records.pName %></td>
+                    <td><a class="doc" href="/doctor/details">View Details</a></td>
+                    <td><%= records.date.toLocaleDateString() %></td>
+                    <td><a class="doc" href="/doctor/edit/<%= records._id %>">Edit</a></td>
+                    <td><a class="doc" href="/doctor/<%= records._id %>">Delete</a></td>
+                    <td><%= records.date %></td>
+
+            </tr>
+
+            <%  }) %>
+            
+        </table>
+</div>
+
+<%- include ('partials/footer') %>
